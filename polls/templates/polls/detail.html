@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'stylesheet.css' %}"
+    />
+  </head>
+  <title>Poll Options</title>
+  <h1>Polls</h1>
+
+  <form action="{% url 'polls:vote' question.id %}" method="post">
+    {% csrf_token %}
+
+    <h2>{{ question.question_text }}</h2>
+    <fieldset>
+      {% if error_message %}
+      <p><strong>{{ error_message }}</strong></p>
+      {% endif %} {% for choice in question.choice_set.all %}
+      <div class="polls__links">
+        <input
+          type="radio"
+          name="choice"
+          id="choice{{ forloop.counter }}"
+          value="{{ choice.id }}"
+        />
+        <label for="choice{{ forloop.counter }}"
+          >{{ choice.choice_text }}
+        </label>
+      </div>
+      {% endfor %}
+    </fieldset>
+    <div>
+      <input type="submit" value="Vote" />
+      <a href="{% url 'polls:index' %}">{{ "Return to polls" }}</a>
+    </div>
+  </form>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'stylesheet.css' %}"
+    />
+  </head>
+  <title>A Polling App</title>
+  <h1>Polls</h1>
+  <div>
+    <h2>Choose a poll</h2>
+    {% if latest_question_list %}
+    <ul>
+      <div class="grid-container">
+        {% for question in latest_question_list %}
+        <div class="poll-outline">
+          <li>
+            <div class="poll-text-div">{{ question.question_text }}</div>
+            <div class="horizontal-buttons">
+              <a href="{% url 'polls:detail' question.id %}">{{ "Vote!" }}</a>
+              <a href="{% url 'polls:results' question.id %}"
+                >{{ "Results" }}</a
+              >
+            </div>
+          </li>
+        </div>
+        {% endfor %}
+      </div>
+    </ul>
+    {% else %}
+    <p>No polls are available.</p>
+    {% endif %}
+  </div>
+</html>

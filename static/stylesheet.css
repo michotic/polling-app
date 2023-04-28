@@ -1,0 +1,161 @@
+:root {
+  --primary: #005eff;
+  --accent: #ffffff;
+  --dark: #404040;
+  --unchecked: #5cd6ff;
+  --checked: #005eff;
+  --unchecked-text: #ffffff;
+  --checked-text: #ffffff;
+}
+
+/* Title banner at top of page */
+h1 {
+  font-size: 36px;
+  font-family: Arial, sans-serif;
+  background-color: var(--primary);
+  color: var(--accent);
+  padding: 15px;
+  width: 101%;
+  text-align: center;
+  margin: -1rem -1rem 0 -1rem;
+}
+
+h2 {
+  font-size: 28px;
+  font-family: Arial, sans-serif;
+  color: var(--primary);
+  padding: 5px;
+  width: 100%;
+  text-align: center;
+}
+
+div {
+  margin: auto;
+  text-align: center;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+}
+
+.poll-outline {
+  border: 5px solid var(--primary);
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  margin: 10px;
+  background-color: var(--accent);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.poll-text-div {
+  border: 5px solid var(--primary);
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  margin: 10px;
+  background-color: var(--checked);
+  color: var(--accent);
+  font-weight: bold;
+}
+
+.horizontal-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* List element */
+li {
+  list-style-type: none;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 24px;
+  color: black;
+}
+
+/* Anchor elements (hyperlink buttons) */
+a {
+  display: inline-block;
+  padding: 10px 20px; /* height width */
+  background-color: var(--accent);
+  color: var(--primary);
+  border-radius: 5px;
+  border-color: var(--primary);
+  border-width: 5px;
+  border-style: solid;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 5px;
+}
+
+a:hover {
+  background-color: var(--checked);
+  color: var(--checked-text);
+}
+
+/* Submit button for poll options */
+input {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--accent);
+  color: var(--primary);
+  border-radius: 5px;
+  border-color: var(--primary);
+  border-width: 5px;
+  border-style: solid;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+input:hover {
+  background-color: var(--checked);
+  color: var(--checked-text);
+}
+
+/* Hide buttons */
+input[type="radio"] {
+  display: none;
+}
+
+/* Change colours when selected for vote page selections */
+input[type="radio"]:checked + label {
+  background-color: var(--checked);
+  color: var(--checked-text);
+}
+
+/* Poll vote page selections */
+label {
+  display: inline-block;
+  background-color: var(--accent);
+  font-family: Arial;
+  font-size: 18px;
+  cursor: pointer;
+  color: var(--primary);
+  padding: 10px 20px;
+  border-radius: 5px;
+  border-color: var(--primary);
+  border-width: 5px;
+  border-style: solid;
+  text-align: center;
+  margin: 10px 10px;
+}
+
+label:hover {
+  background-color: var(--checked);
+  color: var(--checked-text);
+}
+
+/* Remove border around vote page selections */
+fieldset {
+  border: 0px;
+}
